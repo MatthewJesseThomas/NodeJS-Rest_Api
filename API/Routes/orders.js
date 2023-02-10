@@ -7,10 +7,16 @@ router.get('/', (req, res, next) => {
         message: 'Orders were Fetched'
     });
 });
-// 201-post Status code for Everything Successful 
+// 201-post Status code for Everything Successful
+// Parsing the Body  
 router.post('/', (req, res, next) => {
+    const order = {
+        productId: req.body.productId,
+        quantity: req.body.quantity
+    };
     res.status(201).json({
-        message: 'Order was Created'
+        message: 'Order was Created',
+        order: order
     });
 });
 
